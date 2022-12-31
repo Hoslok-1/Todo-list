@@ -1,4 +1,6 @@
 import './style.css';
+import { todayView } from './todayview.js';
+
 const container = document.getElementById('container');
 
 
@@ -12,6 +14,7 @@ const navBarItem2 = document.createElement('li')
 const navBarItem3 = document.createElement('li')
 const navBarProjects = document.createElement('ul')
 const addProjectBtn = document.createElement('button')
+const navBarLine = document.createElement('div')
 
 
 container.appendChild(navBarClass)
@@ -20,6 +23,7 @@ navBar.appendChild(navBarItems)
 navBarItems.appendChild(navBarItem1)
 navBarItems.appendChild(navBarItem2)
 navBarItems.appendChild(navBarItem3)
+navBar.appendChild(navBarLine)
 navBar.appendChild(navBarProjects)
 navBarProjects.appendChild(addProjectBtn)
 
@@ -28,6 +32,10 @@ navBarClass.classList.add('navBarClass');
 navBarItems.classList.add('initialProjects')
 navBarProjects.classList.add('navBarProjects')
 addProjectBtn.classList.add('addProject')
+navBarLine.classList.add('navBarLine')
+navBarItem1.classList.add('todayBtn')
+
+
 
 navBarItem1.textContent = "Today"
 navBarItem2.textContent = "This Week"
@@ -38,3 +46,17 @@ addProjectBtn.textContent = "➕ Add Project"
 
 
 // Text Code
+
+const rightTemplate = document.createElement('div');
+
+
+
+container.appendChild(rightTemplate);
+
+
+rightTemplate.classList.add('rightTemplate');
+
+navBarItem1.addEventListener('click',()=>{rightTemplate.appendChild(todayView())})
+
+
+export {container};
