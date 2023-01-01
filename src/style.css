@@ -95,6 +95,22 @@ nav{
 }
 
 
+.task
+{
+  display: flex;
+  justify-content:flex-start;
+  gap:200px;
+  height:40px;
+  margin-left: 200px;
+  min-width: 0px;
+  text-align: center;
+}
+
+.taskDesc
+{
+  min-width: 0px;
+  max-width: 200px;
+}
 
 
 
