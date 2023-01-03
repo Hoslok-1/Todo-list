@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body\n{\n    margin: 0;\n    padding: 0;\n    background-color:rgb(52, 47, 47);\n    color:aliceblue;\n\n}\n\n.container\n{\n    display: flex;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body\n{\n    margin: 0;\n    padding: 0;\n    background-color:rgb(52, 47, 47);\n    color:aliceblue;\n\n}\n\n#container\n{\n    display: flex;\n}\n\n#leftPanel\n{\n    display: flex;\n    flex-direction: column;\n    height:100vh;\n    background-color: rgb(115, 172, 204);\n    border-right: 4px solid black;\n}\n\n.defaultProjects\n{\n    width:20vw;\n    height:40vh;\n    text-align: center;\n    padding:10px;\n}\n\n.defaultBtns\n{\n    height:60vh;\n    padding:10px;\n    text-align: center;\n}\n\n.btn\n{\n    cursor: pointer;\n    border: 2px solid burlywood;\n    background-color:cornflowerblue;\n}\n\n.inputProj\n{\n    display: flex;\n    flex-direction: column;\n    gap:10px;\n    margin-top: 2vh;\n    width: 15vw;\n    align-items: center;\n    margin-left: 2vw;\n}\n\n.inputSubmit\n{\n    border-radius: 10px;\n    background-color: greenyellow;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -494,6 +494,64 @@ function styleTagTransform(css, styleElement) {
 
 module.exports = styleTagTransform;
 
+/***/ }),
+
+/***/ "./src/default.ts":
+/*!************************!*\
+  !*** ./src/default.ts ***!
+  \************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.defaultBtn = exports.defaultProjects = exports.defaultInput = exports.defaultProjBtn = exports.defaultProj = void 0;
+const defaultProjects = document.createElement('div');
+exports.defaultProjects = defaultProjects;
+const defaultBtn = document.createElement('div');
+exports.defaultBtn = defaultBtn;
+// generates DOM for 'Today Tasks'
+const defaultProj = () => {
+    const defaultToday = document.createElement('div');
+    const todayName = document.createElement('div');
+    defaultProjects.appendChild(defaultToday);
+    defaultToday.appendChild(todayName);
+    defaultProjects.classList.add('defaultProjects');
+    defaultToday.classList.add('defaultToday');
+    defaultToday.classList.add('btn');
+    todayName.classList.add('todayName');
+    todayName.textContent = "Tasks Today";
+    return defaultProjects;
+};
+exports.defaultProj = defaultProj;
+// generates DOM for 'Add Project' button 
+const defaultProjBtn = () => {
+    const defaultAddBtn = document.createElement('div');
+    defaultBtn.appendChild(defaultAddBtn);
+    defaultBtn.classList.add('defaultBtns');
+    defaultAddBtn.classList.add('defaultAddBtn');
+    defaultAddBtn.classList.add('btn');
+    defaultAddBtn.setAttribute('id', 'defaultAddBtn');
+    defaultAddBtn.textContent = "Add Project";
+    return defaultBtn;
+};
+exports.defaultProjBtn = defaultProjBtn;
+// generates DOM for input box and submit button when 'Add Project' is clicked
+const defaultInput = () => {
+    const inputProj = document.createElement('div');
+    const inputBox = document.createElement('input');
+    const inputSubmit = document.createElement('button');
+    inputProj.appendChild(inputBox);
+    inputProj.appendChild(inputSubmit);
+    inputBox.setAttribute('type', 'text');
+    inputProj.classList.add('inputProj');
+    inputBox.classList.add('inputBox');
+    inputSubmit.classList.add('inputSubmit');
+    inputSubmit.textContent = "Submit";
+    return inputProj;
+};
+exports.defaultInput = defaultInput;
+
+
 /***/ })
 
 /******/ 	});
@@ -579,7 +637,13 @@ var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 __webpack_require__(/*! ./styles/index.css */ "./src/styles/index.css");
-//const defaultProject = document.createElement('div')
+const default_1 = __webpack_require__(/*! ./default */ "./src/default.ts");
+const leftPanel = document.getElementById('leftPanel');
+//appends the default projects (i,e today) from default.ts
+leftPanel === null || leftPanel === void 0 ? void 0 : leftPanel.appendChild((0, default_1.defaultProj)());
+leftPanel === null || leftPanel === void 0 ? void 0 : leftPanel.appendChild((0, default_1.defaultProjBtn)());
+const addProjBtn = document.getElementById('defaultAddBtn');
+addProjBtn === null || addProjBtn === void 0 ? void 0 : addProjBtn.addEventListener('click', () => { default_1.defaultBtn.appendChild((0, default_1.defaultInput)()); });
 
 })();
 
