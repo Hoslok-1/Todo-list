@@ -1,6 +1,6 @@
 import './style.css';
-import { todayView } from './todayview.js';
-import { thisweekView } from './thisweekview.js';
+import { todayView, popUp as popUpToday } from './todayview.js';
+import { thisweekView,popUp as popUpThisWeek } from './thisweekview.js';
 
 const container = document.getElementById('container');
 
@@ -57,9 +57,13 @@ container.appendChild(rightTemplate);
 
 rightTemplate.classList.add('rightTemplate');
 
-navBarItem1.addEventListener('click',()=>{rightTemplate.innerHTML = '';rightTemplate.appendChild(todayView())})
-navBarItem2.addEventListener('click',()=>{rightTemplate.innerHTML = '';rightTemplate.appendChild(thisweekView())})
+navBarItem1.addEventListener('click',()=>{popUpToday.remove();popUpThisWeek.remove();rightTemplate.innerHTML = '';rightTemplate.appendChild(todayView());})
+navBarItem2.addEventListener('click',()=>{popUpToday.remove();popUpThisWeek.remove();rightTemplate.innerHTML = '';rightTemplate.appendChild(thisweekView())})
 
-
+function closeTab()
+{
+    document.getElementById('todayPage').remove();
+    //thisweekView.remove();
+}
 
 export {container,rightTemplate};
