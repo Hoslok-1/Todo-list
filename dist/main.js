@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body\n{\n    margin: 0;\n    padding: 0;\n    background-color:rgb(52, 47, 47);\n    color:aliceblue;\n\n}\n\n#container\n{\n    display: flex;\n}\n\n#leftPanel\n{\n    display: flex;\n    flex-direction: column;\n    height:100vh;\n    background-color: rgb(115, 172, 204);\n    border-right: 4px solid black;\n}\n\n.defaultProjects\n{\n    width:20vw;\n    height:40vh;\n    text-align: center;\n    padding:10px;\n}\n\n.defaultBtns\n{\n    height:60vh;\n    padding:10px;\n    text-align: center;\n}\n\n.btn\n{\n    cursor: pointer;\n    border: 2px solid burlywood;\n    background-color:cornflowerblue;\n}\n\n.inputProj\n{\n    display: flex;\n    flex-direction: column;\n    gap:10px;\n    margin-top: 2vh;\n    width: 15vw;\n    align-items: center;\n    margin-left: 2vw;\n}\n\n.inputSubmit\n{\n    border-radius: 10px;\n    background-color: greenyellow;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "body\n{\n    margin: 0;\n    padding: 0;\n    background-color:rgb(52, 47, 47);\n    color:aliceblue;\n\n}\n\n#container\n{\n    display: flex;\n}\n\n#leftPanel\n{\n    display: flex;\n    flex-direction: column;\n    height:100vh;\n    background-color: rgb(115, 172, 204);\n    border-right: 4px solid black;\n}\n\n.defaultProjects\n{\n    width:20vw;\n    height:40vh;\n    text-align: center;\n    padding:10px;\n}\n\n.defaultBtns\n{\n    height:60vh;\n    padding:10px;\n    text-align: center;\n}\n\n.btn\n{\n    cursor: pointer;\n    border: 2px solid burlywood;\n    background-color:cornflowerblue;\n}\n\n.inputProj\n{\n    gap:10px;\n    margin-top: 2vh;\n    width: 15vw;\n    align-items: center;\n    margin-left: 2vw;\n}\n\n.inputSubmit ,.inputClose\n{\n    margin-top: 1vh;\n    border-radius: 10px;\n    background-color: greenyellow;\n}\n\n#priority,.inputDate\n{\n    margin-top: 1vh;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -540,13 +540,34 @@ const defaultInput = () => {
     const inputProj = document.createElement('div');
     const inputBox = document.createElement('input');
     const inputSubmit = document.createElement('button');
+    const inputDate = document.createElement('input');
+    const inputPriority = document.createElement('select');
+    const inputPriorityLow = document.createElement('option');
+    const inputPriorityMedium = document.createElement('option');
+    const inputPriorityHigh = document.createElement('option');
+    const inputClose = document.createElement('button');
     inputProj.appendChild(inputBox);
+    inputProj.appendChild(inputDate);
+    inputProj.appendChild(inputPriority);
+    inputPriority.appendChild(inputPriorityLow);
+    inputPriority.appendChild(inputPriorityMedium);
+    inputPriority.appendChild(inputPriorityHigh);
     inputProj.appendChild(inputSubmit);
+    inputProj.appendChild(inputClose);
+    inputBox.setAttribute('placeholder', "What's the task?");
+    inputPriority.setAttribute('id', 'priority');
     inputBox.setAttribute('type', 'text');
+    inputDate.setAttribute('type', 'date');
     inputProj.classList.add('inputProj');
     inputBox.classList.add('inputBox');
     inputSubmit.classList.add('inputSubmit');
+    inputDate.classList.add('inputDate');
+    inputClose.classList.add('inputClose');
+    inputPriorityLow.textContent = "Low";
+    inputPriorityMedium.textContent = "Medium";
+    inputPriorityHigh.textContent = "High";
     inputSubmit.textContent = "Submit";
+    inputClose.textContent = "Close";
     return inputProj;
 };
 exports.defaultInput = defaultInput;

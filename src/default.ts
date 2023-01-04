@@ -49,17 +49,40 @@ export const defaultInput = () =>{
     const inputProj = document.createElement('div');
     const inputBox = document.createElement('input');
     const inputSubmit = document.createElement('button');
+    const inputDate = document.createElement('input');
+    const inputPriority = document.createElement('select');
+    const inputPriorityLow = document.createElement('option');
+    const inputPriorityMedium = document.createElement('option');
+    const inputPriorityHigh = document.createElement('option');
+    const inputClose = document.createElement('button');
+
 
     inputProj.appendChild(inputBox);
+    inputProj.appendChild(inputDate);
+    inputProj.appendChild(inputPriority);
+    inputPriority.appendChild(inputPriorityLow);
+    inputPriority.appendChild(inputPriorityMedium);
+    inputPriority.appendChild(inputPriorityHigh);
     inputProj.appendChild(inputSubmit);
+    inputProj.appendChild(inputClose);
+    
+    
+    inputBox.setAttribute('placeholder',"What's the task?");
+    inputPriority.setAttribute('id','priority');
     inputBox.setAttribute('type','text');
-
+    inputDate.setAttribute('type','date');
     inputProj.classList.add('inputProj');
     inputBox.classList.add('inputBox');
     inputSubmit.classList.add('inputSubmit');
+    inputDate.classList.add('inputDate');
+    inputClose.classList.add('inputClose');
 
+
+    inputPriorityLow.textContent = "Low";
+    inputPriorityMedium.textContent = "Medium";
+    inputPriorityHigh.textContent = "High";
     inputSubmit.textContent = "Submit";
-
+    inputClose.textContent = "Close";
 
 
     return inputProj;
