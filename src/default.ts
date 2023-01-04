@@ -1,5 +1,6 @@
 const defaultProjects = document.createElement('div');
 const defaultBtn = document.createElement('div');
+export const inputSubmit = document.createElement('button');
 
 
 // generates DOM for 'Today Tasks'
@@ -15,7 +16,7 @@ export const defaultProj = () =>{
 
     defaultProjects.classList.add('defaultProjects');
     defaultToday.classList.add('defaultToday');
-    defaultToday.classList.add('btn');
+    defaultToday.classList.add('projBtn');
     todayName.classList.add('todayName');
     
 
@@ -31,7 +32,7 @@ export const defaultProjBtn = () =>{
 
     defaultBtn.appendChild(defaultAddBtn);
 
-    defaultBtn.classList.add('defaultBtns');
+    defaultBtn.classList.add('defaultBtn');
     defaultAddBtn.classList.add('defaultAddBtn');
     defaultAddBtn.classList.add('btn');
     defaultAddBtn.setAttribute('id','defaultAddBtn');
@@ -43,47 +44,37 @@ export const defaultProjBtn = () =>{
 
 }
 
-// generates DOM for input box and submit button when 'Add Project' is clicked
+// generates DOM for input box when 'Add Project' is clicked
 export const defaultInput = () =>{
 
     const inputProj = document.createElement('div');
     const inputBox = document.createElement('input');
-    const inputSubmit = document.createElement('button');
-    const inputDate = document.createElement('input');
-    const inputPriority = document.createElement('select');
-    const inputPriorityLow = document.createElement('option');
-    const inputPriorityMedium = document.createElement('option');
-    const inputPriorityHigh = document.createElement('option');
     const inputClose = document.createElement('button');
 
 
     inputProj.appendChild(inputBox);
-    inputProj.appendChild(inputDate);
-    inputProj.appendChild(inputPriority);
-    inputPriority.appendChild(inputPriorityLow);
-    inputPriority.appendChild(inputPriorityMedium);
-    inputPriority.appendChild(inputPriorityHigh);
+
     inputProj.appendChild(inputSubmit);
     inputProj.appendChild(inputClose);
     
     
-    inputBox.setAttribute('placeholder',"What's the task?");
-    inputPriority.setAttribute('id','priority');
+    inputClose.setAttribute('id','inputClose');
+    inputSubmit.setAttribute('id','inputSubmit');
+    inputBox.setAttribute('id','inputBox');
+    inputBox.setAttribute('placeholder',"Project name?");
     inputBox.setAttribute('type','text');
-    inputDate.setAttribute('type','date');
+    inputProj.setAttribute('id','inputProj');
     inputProj.classList.add('inputProj');
     inputBox.classList.add('inputBox');
     inputSubmit.classList.add('inputSubmit');
-    inputDate.classList.add('inputDate');
     inputClose.classList.add('inputClose');
 
 
-    inputPriorityLow.textContent = "Low";
-    inputPriorityMedium.textContent = "Medium";
-    inputPriorityHigh.textContent = "High";
     inputSubmit.textContent = "Submit";
     inputClose.textContent = "Close";
 
+    
+    inputClose.addEventListener('click',()=>{inputProj.remove()}) // removes 'inputProj' once close is clicked
 
     return inputProj;
 

@@ -21,19 +21,23 @@ body
     border-right: 4px solid black;
 }
 
-.defaultProjects
+.defaultProjects, #generatedProject
 {
     width:20vw;
-    height:40vh;
+    max-height:50vh;
     text-align: center;
     padding:10px;
 }
 
-.defaultBtns
+
+
+.defaultBtn
 {
     height:60vh;
+    width: 20vw;
     padding:10px;
     text-align: center;
+
 }
 
 .btn
@@ -41,6 +45,17 @@ body
     cursor: pointer;
     border: 2px solid burlywood;
     background-color:cornflowerblue;
+}
+
+.projBtn
+{
+    cursor: pointer;
+    background-color: rgb(101, 188, 14);
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    text-align: center;
 }
 
 .inputProj
@@ -62,4 +77,9 @@ body
 #priority,.inputDate
 {
     margin-top: 1vh;
+}
+
+.defaultAddBtn
+{
+    text-align: center;
 }
