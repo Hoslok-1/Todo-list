@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background-color:rgb(52, 47, 47);
+    background-color:#031927;
     color:aliceblue;
 
 }
@@ -17,8 +17,15 @@ body
     display: flex;
     flex-direction: column;
     height:100vh;
-    background-color: rgb(115, 172, 204);
+    background-color: #F2AB39;
     border-right: 4px solid black;
+}
+
+#rightPanel
+{
+    display: flex;
+    flex-direction: column;
+    width:80vw;
 }
 
 .defaultProjects, #generatedProject
@@ -82,4 +89,23 @@ body
 .defaultAddBtn
 {
     text-align: center;
+}
+
+#tasks
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:15px 10px;
+
+}
+
+.subTask
+{
+    display: flex;
+    justify-content: space-around;
+
+    border-radius: 15px;
+    width:50%;
+    margin-left: 25%;
+
 }

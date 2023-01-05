@@ -18,7 +18,7 @@ export const defaultProj = () =>{
     defaultToday.classList.add('defaultToday');
     defaultToday.classList.add('projBtn');
     todayName.classList.add('todayName');
-    
+    defaultToday.setAttribute('id','defaultToday');
 
     todayName.textContent = "Tasks Today"; 
 
