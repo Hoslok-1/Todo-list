@@ -1,5 +1,5 @@
 
-let projectsPresent:string[] = []
+export let projectsPresent:string[] = []
 
 
 

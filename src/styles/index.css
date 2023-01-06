@@ -23,8 +23,6 @@ body
 
 #rightPanel
 {
-    display: flex;
-    flex-direction: column;
     width:80vw;
 }
 
@@ -91,21 +89,39 @@ body
     text-align: center;
 }
 
+#view
+{
+    width: 80vw;
+}
+
 #tasks
 {
     display: grid;
     grid-template-columns: 1fr;
     gap:15px 10px;
-
 }
 
 .subTask
 {
     display: flex;
     justify-content: space-around;
-
-    border-radius: 15px;
-    width:50%;
+    width: 50%;
     margin-left: 25%;
+}
+
+#addTaskBtn
+{
+    margin-left: 50%;
+}
+
+#popUp
+{
+    display: none;
 
 }
+
+#addTask
+{
+    padding:20px;
+}
+

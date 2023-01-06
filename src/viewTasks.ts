@@ -1,4 +1,6 @@
-const mainTask = document.getElementById('tasks');
+import { rightPanel,generatedProject } from ".";
+import { projectsPresent } from "./addProj";
+import { rightPanelDefaults } from "./default";
 
 type Task = {
     title:string;
@@ -9,17 +11,20 @@ type Task = {
 
 let tasksToday:Task[] = [{title:"eat",date:"23/12/44",priority:"low"},{title:"shit",date:"23/12/45",priority:"high"}]
 
-
-export function iterateTasks():void
+export function iterateTasks(variable:string):void
 {
-    for(let i =0;i<tasksToday.length;i++)
+    if (variable == "today")
     {
-        viewTask(tasksToday[i]);
+        for(let i =0;i<tasksToday.length;i++)
+        {
+            viewTask(tasksToday[i]);
+        }
     }
 }
 
 function viewTask(task:Task)
 {
+    const tasks = document.getElementById('tasks');
 
     let title = document.createElement('div');
     title.setAttribute('id','taskTitle');
@@ -43,5 +48,19 @@ function viewTask(task:Task)
     subTask.appendChild(prio);
 
 
-    mainTask?.appendChild(subTask);
+    tasks?.appendChild(subTask);
+}
+
+export function checkChildren()
+{
+    let mainEle = document.getElementById('generatedProject')
+    for(let i = 0;i<generatedProject.childNodes.length;i++)
+    {
+        generatedProject.childNodes[i].addEventListener('click',()=>{
+            document.getElementById('view')?.remove();
+            rightPanel?.appendChild(rightPanelDefaults());
+            iterateTasks(projectsPresent[i]);
+        }); 
+    }
+
 }

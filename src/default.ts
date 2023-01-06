@@ -1,3 +1,5 @@
+import { addTaskBtn, appendPopUp } from "./addTask";
+
 const defaultProjects = document.createElement('div');
 const defaultBtn = document.createElement('div');
 export const inputSubmit = document.createElement('button');
@@ -78,6 +80,31 @@ export const defaultInput = () =>{
 
     return inputProj;
 
+}
+
+export const popUp = document.createElement('div');
+export const rightPanelDefaults = () =>{
+    const view = document.createElement('div');
+    const tasks = document.createElement('div');
+    const addTasks = document.createElement('div');
+
+
+    view.setAttribute('id','view');
+    tasks.setAttribute('id','tasks');
+    addTasks.setAttribute('id','addTask');
+    popUp.setAttribute('id','popUp')
+
+    view.appendChild(addTasks);
+    view.appendChild(tasks);
+    view.appendChild(popUp)
+
+    addTasks.appendChild(addTaskBtn());
+    popUp.appendChild(appendPopUp());
+    
+
+    //document.getElementById('addTaskBtn')?.addEventListener('click',()=>{popUp.style.display = 'block'})
+
+    return view;
 }
 
 export {defaultProjects,defaultBtn}
