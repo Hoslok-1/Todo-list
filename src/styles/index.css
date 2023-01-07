@@ -1,10 +1,6 @@
-body
-{
-    margin: 0;
-    padding: 0;
-    background-color:#031927;
-    color:aliceblue;
-
+*{
+    margin:0;
+    padding:0;
 }
 
 #container
@@ -16,112 +12,56 @@ body
 {
     display: flex;
     flex-direction: column;
+    width:30vw;
+    text-align: center;
+    gap:20px;
     height:100vh;
-    background-color: #F2AB39;
-    border-right: 4px solid black;
 }
 
-#rightPanel
+#leftPanelTitle,#addProject
 {
-    width:80vw;
+    height:max-content
 }
 
-.defaultProjects, #generatedProject
+#defaultProjects
 {
-    width:20vw;
-    max-height:50vh;
-    text-align: center;
-    padding:10px;
+    height:30vh;
 }
 
-
-
-.defaultBtn
+#generatedProjects
 {
-    height:60vh;
-    width: 20vw;
-    padding:10px;
-    text-align: center;
-
+    height:50vh;
 }
 
 .btn
 {
-    cursor: pointer;
-    border: 2px solid burlywood;
-    background-color:cornflowerblue;
+    border-radius: 100px;
 }
 
 .projBtn
 {
     cursor: pointer;
-    background-color: rgb(101, 188, 14);
-    border-radius: 10px;
-    width: 50%;
-    margin-left: 5vw;
-    margin-top: 2vh;
-    text-align: center;
 }
 
-.inputProj
-{
-    gap:10px;
-    margin-top: 2vh;
-    width: 15vw;
-    align-items: center;
-    margin-left: 2vw;
-}
-
-.inputSubmit ,.inputClose
-{
-    margin-top: 1vh;
-    border-radius: 10px;
-    background-color: greenyellow;
-}
-
-#priority,.inputDate
-{
-    margin-top: 1vh;
-}
-
-.defaultAddBtn
-{
-    text-align: center;
-}
-
-#view
-{
-    width: 80vw;
-}
-
-#tasks
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap:15px 10px;
-}
-
-.subTask
+#rightPanel
 {
     display: flex;
-    justify-content: space-around;
-    width: 50%;
-    margin-left: 25%;
-}
-
-#addTaskBtn
-{
-    margin-left: 50%;
-}
-
-#popUp
-{
-    display: none;
-
+    flex-direction: column;
+    width:70vw;
 }
 
 #addTask
 {
-    padding:20px;
+    text-align: center;
 }
 
+ul
+{
+    text-decoration: none;
+    list-style: none;
+}
+
+li
+{
+    margin-top: 15px;
+}

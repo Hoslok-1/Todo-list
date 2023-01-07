@@ -8,13 +8,27 @@
     <title>Todo-list</title>
 </head>
 <body>
-    <div id = "container">
-        <div id = "leftPanel">
-
+<div id="container">
+    <div id="leftPanel">
+        <div id="leftPanelTitle"><h2>Projects</h2></div>
+        <div id="defaultProjects">
+            <ul>
+                <li class = "projBtn">Today</li>
+                <li class = "projBtn">This Week</li>
+                <li class = "projBtn">Important</li>
+            </ul>
         </div>
-        <div id = "rightPanel">
-            
+        <div id="addProject">
+            <button id="addProjectBtn" class = "btn">Add Project</button>
+        </div>
+        <div id="generatedProjects"></div>
+    </div>
+    <div id="rightPanel">
+        <div id="addTask">
+            <button id="addTaskBtn" class="btn">Add Task</button>
         </div>
     </div>
+
+</div>
 </body>
 </html>
