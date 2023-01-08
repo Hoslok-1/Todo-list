@@ -6,6 +6,7 @@
 #container
 {
     display: flex;
+    background-color: #242B2E;
 }
 
 #leftPanel
@@ -16,6 +17,8 @@
     text-align: center;
     gap:20px;
     height:100vh;
+    background-color: #F4BE2C;
+    padding: 10px;
 }
 
 #leftPanelTitle,#addProject
@@ -55,6 +58,11 @@
     text-align: center;
 }
 
+.sidebarProject
+{
+    margin-top:18px ;
+}
+
 ul
 {
     text-decoration: none;
@@ -63,5 +71,5 @@ ul
 
 li
 {
-    margin-top: 15px;
+    margin-top: 18px;
 }
