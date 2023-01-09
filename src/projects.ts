@@ -2,7 +2,7 @@ import { renderProjects } from "./dom"
 
 interface sy{
     title:string,
-    tasks?:string[]
+    tasks?:any[]
 }
 
 let projectsList:sy[] = []
