@@ -18,8 +18,9 @@ projectPopUp();
 
 
 const submitProjPopUp = document.getElementById('submitPopUp');
-submitProjPopUp?.addEventListener('click',()=>{createProject((<HTMLInputElement>document.getElementById("titlePopUp")).value)})
+submitProjPopUp?.addEventListener('click',()=>{createProject()})
 //addTaskBtn?.addEventListener('click',()=>{createTask()});
+
 
 
 todayProject?.addEventListener('click',()=>{renderViewToday()});

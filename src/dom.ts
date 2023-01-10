@@ -3,17 +3,19 @@ import { container } from ".";
 
 
 const rightPanel = document.getElementById('rightPanel');
-const generatedProjectList = document.querySelector('.projects-list');
+const defaultProjectList = document.querySelector('.projects-list');
 
 export function renderProjects()
 {
-    generatedProjectList!.textContent = ''   
+    defaultProjectList!.textContent = ''   
     for(let i = 0;i<projectsList.length;i++)
     {
         const projectTitle = document.createElement('div');
         projectTitle.classList.add('sidebarProject');
+        let pLen = projectsList[i].index
+        projectTitle.classList.add(`${pLen}`);
         projectTitle.textContent = projectsList[i].title;
-        generatedProjectList?.appendChild(projectTitle);
+        defaultProjectList?.appendChild(projectTitle);
 
     }
 }
@@ -92,7 +94,6 @@ export function renderViewToday()
     let vari2 = document.getElementById('viewToday');
     if(typeof(vari) != 'undefined' && vari != null)
     {
-        console.log("wagwan pussio")
         vari?.remove();
     }
     if(typeof(vari1) != 'undefined' && vari1 != null)
@@ -122,7 +123,6 @@ export function renderViewWeek()
     let vari2 = document.getElementById('viewToday');
     if(typeof(vari) != 'undefined' && vari != null)
     {
-        console.log("wagwan pussio")
         vari?.remove();
     }
     if(typeof(vari1) != 'undefined' && vari1 != null)
@@ -152,7 +152,6 @@ export function renderViewImportant()
     let vari2 = document.getElementById('viewToday');
     if(typeof(vari) != 'undefined' && vari != null)
     {
-        console.log("wagwan pussio")
         vari?.remove();
     }
     if(typeof(vari1) != 'undefined' && vari1 != null)
@@ -174,3 +173,4 @@ export function renderViewImportant()
     rightPanel?.appendChild(viewDefault);
     viewDefault.setAttribute('id','viewImportant');
 }
+
