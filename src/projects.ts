@@ -1,11 +1,13 @@
 import { renderProjects } from "./dom" 
 
+interface defaultProj{
+    tasks?:any[]
+}
 interface sy{
     title:string,
     tasks?:any[]
     index:number
 }
-
 let projectsList:sy[] = []
 
 class Project
@@ -29,6 +31,7 @@ export function createProject()
     projectsList.push(projectObj);
     renderProjects();
     console.log(projectsList);
+    console.log()
 }
 
 export { projectsList }

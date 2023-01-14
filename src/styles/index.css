@@ -63,6 +63,18 @@
     margin-top:18px ;
 }
 
+#viewToday
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainTask
+{
+    display: flex;
+    justify-content: space-between;
+}
+
 ul
 {
     text-decoration: none;
