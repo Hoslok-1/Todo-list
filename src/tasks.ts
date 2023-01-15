@@ -22,7 +22,7 @@ export let tasksToday:ty[] = []
 export let tasksWeek:ty[] = []
 export let tasksImportant:ty[] = []
 
-export function createTask(projectIndex:any,title:string,priority:string,date:string)
+export function createTask(projectIndex:string,title:string,priority:string,date:string)
 {
     if(projectIndex == "today")
     {
@@ -51,3 +51,10 @@ export function createTask(projectIndex:any,title:string,priority:string,date:st
     console.log(projectsList[projectIndex].tasks); */
 }
 
+export function createTaskCustom(projectIndex:number,title:string,priority:string,date:string)
+{
+    const taskObj = new task(title,priority,date);
+    projectsList[projectIndex].tasks?.push(taskObj);
+    console.log("Working?");
+    console.log(projectsList[projectIndex]);
+}

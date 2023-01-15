@@ -1,7 +1,7 @@
 import './styles/index.css'
 import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant } from './dom';
 import { createProject } from './projects';
-import { createTask } from './tasks';
+import { createTask, createTaskCustom } from './tasks';
 
 export const container = document.getElementById('container');
 const addProjectBtn = document.getElementById('addProjectBtn');
@@ -31,9 +31,9 @@ importantProject?.addEventListener('click',()=>{renderViewImportant();renderTask
 
 const taskPopUpSubmit = document.querySelector('.taskPopUpSubmit');
 taskPopUpSubmit?.addEventListener('click',()=>{
-    if(rightPanel?.firstChild)
+    if(typeof(rightPanel?.firstChild?.nodeValue) == 'string')
     {
-        let child = rightPanel.children
+        let child = rightPanel!.children
         console.log(rightPanel.children);
         if (child[0].id == "viewToday")
         {
@@ -53,8 +53,12 @@ taskPopUpSubmit?.addEventListener('click',()=>{
         
         return 
     }
+    else
+    {
+        let child = rightPanel!.children
+        createTaskCustom(parseInt(child[0].classList[1]),(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
+    }
     
 
-    createTask(0,(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
 });
 
