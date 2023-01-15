@@ -75,6 +75,11 @@
     justify-content: space-between;
 }
 
+.sidebarProject
+{
+    cursor: pointer;
+}
+
 ul
 {
     text-decoration: none;

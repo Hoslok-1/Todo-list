@@ -18,7 +18,25 @@ export function renderProjects()
         projectTitle.textContent = projectsList[i].title;
         defaultProjectList?.appendChild(projectTitle);
 
+        projectTitle.addEventListener('click',()=>{
+            let index:string = projectTitle.classList[1];
+            renderGeneratedProjectsView((parseInt(index)))
+    });
     }
+}
+
+export function renderGeneratedProjectsView(index:number)
+{
+    rightPanel!.textContent = '';
+    const generatedView = document.createElement('div');
+    generatedView.classList.add('upper-view');
+    rightPanel?.appendChild(generatedView);
+
+    const view = document.createElement('div');
+    generatedView.appendChild(view);
+
+    view.classList.add(`generatedView${index}`);
+
 }
 
 export function projectPopUp()
