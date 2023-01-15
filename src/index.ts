@@ -1,5 +1,5 @@
 import './styles/index.css'
-import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant } from './dom';
+import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant, renderTasksCustom } from './dom';
 import { createProject } from './projects';
 import { createTask, createTaskCustom } from './tasks';
 
@@ -14,13 +14,10 @@ const importantProject = document.getElementById('importantProject');
 
 projectPopUp();
 taskPopUp();
-const taskPopUpInput = (<HTMLInputElement>document.querySelector('.taskPopUpInput')).value;
-const taskPopUpDate = (<HTMLInputElement>document.querySelector('.taskPopUpDate')).value;
-const taskPopUpPrio = (<HTMLInputElement>document.getElementById('taskPopUpPrio')).value;
 
 
 const submitProjPopUp = document.getElementById('submitPopUp');
-submitProjPopUp?.addEventListener('click',()=>{createProject()})
+submitProjPopUp?.addEventListener('click',()=>{createProject();})
 //addTaskBtn?.addEventListener('click',()=>{createTask()});
 
 
@@ -31,10 +28,10 @@ importantProject?.addEventListener('click',()=>{renderViewImportant();renderTask
 
 const taskPopUpSubmit = document.querySelector('.taskPopUpSubmit');
 taskPopUpSubmit?.addEventListener('click',()=>{
-    if(typeof(rightPanel?.firstChild?.nodeValue) == 'string')
+    if(typeof(rightPanel?.firstChild?.nodeValue) === 'string')
     {
         let child = rightPanel!.children
-        console.log(rightPanel.children);
+        console.log(rightPanel!.children);
         if (child[0].id == "viewToday")
         {
             createTask("today",(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
@@ -50,13 +47,14 @@ taskPopUpSubmit?.addEventListener('click',()=>{
             createTask("important",(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
             renderTasksImportant();
         }
-        
         return 
     }
     else
     {
+        console.log("Wordong?")
         let child = rightPanel!.children
         createTaskCustom(parseInt(child[0].classList[1]),(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
+        renderTasksCustom();
     }
     
 

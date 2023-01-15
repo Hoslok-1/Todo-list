@@ -12,6 +12,7 @@ class task{
         this.date = date;
     }
 }
+
 interface ty{
     title:string,
     priority:string
@@ -56,5 +57,6 @@ export function createTaskCustom(projectIndex:number,title:string,priority:strin
     const taskObj = new task(title,priority,date);
     projectsList[projectIndex].tasks?.push(taskObj);
     console.log("Working?");
-    console.log(projectsList[projectIndex]);
+    console.log(projectsList);
 }
+

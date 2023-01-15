@@ -21,6 +21,7 @@ export function renderProjects()
         projectTitle.addEventListener('click',()=>{
             let index:string = projectTitle.classList[1];
             renderGeneratedProjectsView((parseInt(index)))
+            renderTasksCustom();
     });
     }
 };
@@ -35,6 +36,7 @@ export function renderGeneratedProjectsView(index:number)
 
     view.classList.add('generatedView');
     view.classList.add(`${index}`);
+
 
 }
 
@@ -97,21 +99,7 @@ export function taskPopUp()
 export function renderViewToday()
 {
     rightPanel!.textContent = '';
-    let vari = document.getElementById('viewImportant')
-    let vari1 = document.getElementById('viewWeek')
-    let vari2 = document.getElementById('viewToday');
-/*     if(typeof(vari) != 'undefined' && vari != null)
-    {
-        vari?.remove();
-    }
-    if(typeof(vari1) != 'undefined' && vari1 != null)
-    {
-        vari1.remove()
-    }
-    if(typeof(vari2) != 'undefined' && vari2 != null)
-    {
-        vari2.remove()
-    } */
+    
     const viewDefault = document.createElement('div');
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent =  "Add Task"; 
@@ -127,21 +115,7 @@ export function renderViewToday()
 export function renderViewWeek()
 {
     rightPanel!.textContent = '';
-    let vari = document.getElementById('viewImportant')
-    let vari1 = document.getElementById('viewWeek')
-    let vari2 = document.getElementById('viewToday');
-/*     if(typeof(vari) != 'undefined' && vari != null)
-    {
-        vari?.remove();
-    }
-    if(typeof(vari1) != 'undefined' && vari1 != null)
-    {
-        vari1.remove()
-    }
-    if(typeof(vari2) != 'undefined' && vari2 != null)
-    {
-        vari2.remove()
-    } */
+
     const viewDefault = document.createElement('div');
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent =  "Add Task"; 
@@ -157,21 +131,7 @@ export function renderViewWeek()
 export function renderViewImportant()
 {
     rightPanel!.textContent = '';
-    let vari = document.getElementById('viewImportant')
-    let vari1 = document.getElementById('viewWeek')
-    let vari2 = document.getElementById('viewToday');
-/*     if(typeof(vari) != 'undefined' && vari != null)
-    {
-        vari?.remove();
-    }
-    if(typeof(vari1) != 'undefined' && vari1 != null)
-    {
-        vari1.remove()
-    }
-    if(typeof(vari2) != 'undefined' && vari2 != null)
-    {
-        vari2.remove()
-    } */
+
     const viewDefault = document.createElement('div');
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent =  "Add Task"; 
@@ -257,5 +217,32 @@ export function renderTasksImportant()
         mainTask.appendChild(taskPriority);
 
         tasksImportantVar?.appendChild(mainTask);
+    }
+}
+
+export function renderTasksCustom()
+{
+    const task = document.querySelector('.generatedView');
+    let child = rightPanel!.children
+    let index = parseInt(child[0].classList[1])
+    task!.textContent = ''
+    for(let i = 0; i <projectsList![index].tasks!.length;i++)
+    {
+        const mainTask = document.createElement('div');
+        mainTask.classList.add('mainTask');
+        const taskTitle = document.createElement('div');
+        taskTitle.classList.add('task');
+        taskTitle.textContent = projectsList[index].tasks![i].title;
+        const taskDate = document.createElement('div');
+        taskDate.classList.add('task');
+        taskDate.textContent = projectsList[index].tasks![i].date;
+        const taskPriority = document.createElement('div');
+        taskPriority.textContent = projectsList[index].tasks![i].priority;
+
+        mainTask.appendChild(taskTitle);
+        mainTask.appendChild(taskDate);
+        mainTask.appendChild(taskPriority);
+
+        task?.appendChild(mainTask);
     }
 }
