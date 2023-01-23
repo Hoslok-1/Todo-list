@@ -1,5 +1,5 @@
 import './styles/index.css'
-import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant, renderTasksCustom } from './dom';
+import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant, renderTasksCustom, popUpProject } from './dom';
 import { createProject } from './projects';
 import { createTask, createTaskCustom } from './tasks';
 
@@ -10,7 +10,6 @@ const addTaskBtn = document.getElementById('addTaskBtn');
 const todayProject = document.getElementById('todayProject');
 const weekProject = document.getElementById('weekProject');
 const importantProject = document.getElementById('importantProject');
-
 
 projectPopUp();
 taskPopUp();
@@ -26,9 +25,21 @@ todayProject?.addEventListener('click',()=>{renderViewToday();renderTasksToday()
 weekProject?.addEventListener('click',()=>{renderViewWeek();renderTasksWeek()});
 importantProject?.addEventListener('click',()=>{renderViewImportant();renderTasksImportant()});
 
+addProjectBtn?.addEventListener('click',()=>{
+    popUpProject.style.display = 'block';
+})
+const submitProj  = document.getElementById('submitPopUp');
+
+submitProj?.addEventListener('click',()=>{
+    popUpProject.style.display = 'none';
+})
+
 const taskPopUpSubmit = document.querySelector('.taskPopUpSubmit');
 taskPopUpSubmit?.addEventListener('click',()=>{
-    if(typeof(rightPanel?.firstChild?.nodeValue) === 'string')
+    rightPanel?.children[0].classList.add('default');
+    console.log((rightPanel?.lastChild))
+    popUpProject.style.display = 'none'
+    if(rightPanel?.children[0].className == 'default')
     {
         let child = rightPanel!.children
         console.log(rightPanel!.children);

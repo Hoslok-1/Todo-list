@@ -13,7 +13,7 @@
 {
     display: flex;
     flex-direction: column;
-    width:30vw;
+    min-width:15vw;
     text-align: center;
     gap:20px;
     height:100vh;
@@ -50,7 +50,7 @@
 {
     display: flex;
     flex-direction: column;
-    width:70vw;
+    width:80vw;
 }
 
 #addTask
@@ -89,4 +89,20 @@ ul
 li
 {
     margin-top: 18px;
+}
+.popUpProject
+{
+    border: 2px solid black;
+    width: 20vw;
+    height: 20vh;
+    margin-right: 420px;
+    margin-top:220px;
+    background-color: #F4BE2C;
+    padding: 20px;
+}
+
+#submitPopUp
+{
+    margin-left: 75px;
+    margin-top: 30px;
 }

@@ -40,9 +40,9 @@ export function renderGeneratedProjectsView(index:number)
 
 }
 
+export const popUpProject = document.createElement('div');
 export function projectPopUp()
 {
-    const popUpProject = document.createElement('div');
     const titlePopUp = document.createElement('input')
     const submitPopUp = document.createElement('button');
 
@@ -55,6 +55,8 @@ export function projectPopUp()
     popUpProject.appendChild(titlePopUp)
     popUpProject.appendChild(submitPopUp);
 
+    popUpProject.classList.add('popUpProject');
+    popUpProject.style.display = 'none';
 
     container!.appendChild(popUpProject);
 }

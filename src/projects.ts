@@ -1,4 +1,4 @@
-import { renderProjects } from "./dom" 
+import { projectPopUp, renderProjects } from "./dom" 
 
 interface defaultProj{
     tasks?:any[]
