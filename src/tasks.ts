@@ -1,7 +1,7 @@
 import { projectsList } from "./projects";
 
 
-class task{
+export class task{
     title:string;
     priority:string;
     date:string;
@@ -55,8 +55,8 @@ export function createTask(projectIndex:string,title:string,priority:string,date
 export function createTaskCustom(projectIndex:number,title:string,priority:string,date:string)
 {
     const taskObj = new task(title,priority,date);
+    console.log(taskObj);
     projectsList[projectIndex].tasks?.push(taskObj);
-    console.log("Working?");
     console.log(projectsList);
 }
 

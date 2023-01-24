@@ -1,6 +1,6 @@
 import { projectsList } from "./projects";
 import { container } from ".";
-import { tasksImportant, tasksToday, tasksWeek } from "./tasks";
+import { task, tasksImportant, tasksToday, tasksWeek } from "./tasks";
 
 const rightPanel = document.getElementById('rightPanel');
 const defaultProjectList = document.querySelector('.projects-list');
@@ -232,6 +232,7 @@ export function renderTasksCustom()
     {
         const mainTask = document.createElement('div');
         mainTask.classList.add('mainTask');
+        mainTask.classList.add(`${i}`)
         const taskTitle = document.createElement('div');
         taskTitle.classList.add('task');
         taskTitle.textContent = projectsList[index].tasks![i].title;
@@ -240,11 +241,27 @@ export function renderTasksCustom()
         taskDate.textContent = projectsList[index].tasks![i].date;
         const taskPriority = document.createElement('div');
         taskPriority.textContent = projectsList[index].tasks![i].priority;
+        const taskDelete = document.createElement('div');
+        taskDelete.textContent = "Delete";
+        taskDelete.classList.add('deleteTask');
 
         mainTask.appendChild(taskTitle);
         mainTask.appendChild(taskDate);
         mainTask.appendChild(taskPriority);
+        mainTask.appendChild(taskDelete);
+
+        taskDelete.addEventListener('click',()=>{deleteTask(taskTitle.innerText,parseInt(mainTask.classList[1]))})
 
         task?.appendChild(mainTask);
     }
 }
+
+function deleteTask(task:string,taskIndex:number)
+{
+    console.log(task)
+    let index:number = parseInt(rightPanel!.children[0].classList[1]);
+    projectsList[index].tasks!.splice(taskIndex,1);
+    console.log(projectsList[index].tasks);
+    renderTasksCustom()
+}
+

@@ -64,7 +64,7 @@ taskPopUpSubmit?.addEventListener('click',()=>{
     {
         console.log("Wordong?")
         let child = rightPanel!.children
-        createTaskCustom(parseInt(child[0].classList[1]),(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
+        createTaskCustom(parseInt(child[0].classList[1]),(<HTMLInputElement>document.querySelector('.taskPopUpInput')).value,(<HTMLInputElement>document.getElementById('taskPopUpPrio')).value,(<HTMLInputElement>document.querySelector('.taskPopUpDate')).value);
         renderTasksCustom();
     }
     
