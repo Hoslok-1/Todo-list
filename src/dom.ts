@@ -5,17 +5,27 @@ import { task, tasksImportant, tasksToday, tasksWeek } from "./tasks";
 const rightPanel = document.getElementById('rightPanel');
 const defaultProjectList = document.querySelector('.projects-list');
 
-
 export function renderProjects()
 {
     defaultProjectList!.textContent = ''   
-    for(let i = 0;i<projectsList.length;i++)
+    let projectListHere = projectsList
+    if(localStorage.getItem('projectList'))
+    {
+        let temp:any = JSON.parse(localStorage.getItem('projectList')!);
+        //console.log(temp+"sd");
+        console.log(projectsList);
+        console.log(temp)
+        projectListHere = temp;
+        
+    }
+    
+    for(let i = 0;i<projectListHere.length;i++)
     {
         const projectTitle = document.createElement('div');
         projectTitle.classList.add('sidebarProject');
-        let pLen:number = projectsList[i].index
+        let pLen:number = projectListHere[i].index
         projectTitle.classList.add(`${pLen}`);
-        projectTitle.textContent = projectsList[i].title;
+        projectTitle.textContent = projectListHere[i].title;
         defaultProjectList?.appendChild(projectTitle);
 
         projectTitle.addEventListener('click',()=>{
@@ -228,19 +238,29 @@ export function renderTasksCustom()
     let child = rightPanel!.children
     let index = parseInt(child[0].classList[1])
     task!.textContent = ''
-    for(let i = 0; i <projectsList![index].tasks!.length;i++)
+    let projectListHere = projectsList
+    if(localStorage.getItem('projectList'))
+    {
+        let temp:any = JSON.parse(localStorage.getItem('projectList')!);
+        //console.log(temp+"sd");
+        console.log(projectsList);
+        console.log(temp)
+        projectListHere = temp;
+        
+    }
+    for(let i = 0; i <projectListHere![index].tasks!.length;i++)
     {
         const mainTask = document.createElement('div');
         mainTask.classList.add('mainTask');
         mainTask.classList.add(`${i}`)
         const taskTitle = document.createElement('div');
         taskTitle.classList.add('task');
-        taskTitle.textContent = projectsList[index].tasks![i].title;
+        taskTitle.textContent = projectListHere[index].tasks![i].title;
         const taskDate = document.createElement('div');
         taskDate.classList.add('task');
-        taskDate.textContent = projectsList[index].tasks![i].date;
+        taskDate.textContent = projectListHere[index].tasks![i].date;
         const taskPriority = document.createElement('div');
-        taskPriority.textContent = projectsList[index].tasks![i].priority;
+        taskPriority.textContent = projectListHere[index].tasks![i].priority;
         const taskDelete = document.createElement('div');
         taskDelete.textContent = "Delete";
         taskDelete.classList.add('deleteTask');
@@ -264,4 +284,6 @@ function deleteTask(task:string,taskIndex:number)
     console.log(projectsList[index].tasks);
     renderTasksCustom()
 }
+
+
 

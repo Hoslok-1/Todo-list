@@ -1,6 +1,6 @@
 import './styles/index.css'
-import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant, renderTasksCustom, popUpProject } from './dom';
-import { createProject } from './projects';
+import {  projectPopUp, renderViewWeek,renderViewToday,renderViewImportant, taskPopUp,renderTasksToday, renderTasksWeek, renderTasksImportant, renderTasksCustom, popUpProject, renderProjects } from './dom';
+import { createProject, projectsList } from './projects';
 import { createTask, createTaskCustom } from './tasks';
 
 export const container = document.getElementById('container');
@@ -11,12 +11,12 @@ const todayProject = document.getElementById('todayProject');
 const weekProject = document.getElementById('weekProject');
 const importantProject = document.getElementById('importantProject');
 
-projectPopUp();
+projectPopUp();addEventListener
 taskPopUp();
-
+renderProjects();
 
 const submitProjPopUp = document.getElementById('submitPopUp');
-submitProjPopUp?.addEventListener('click',()=>{createProject();})
+submitProjPopUp?.addEventListener('click',()=>{createProject();populateProjects()})
 //addTaskBtn?.addEventListener('click',()=>{createTask()});
 
 
@@ -71,3 +71,8 @@ taskPopUpSubmit?.addEventListener('click',()=>{
 
 });
 
+function populateProjects()
+{
+    localStorage.removeItem('projectList');
+    localStorage.setItem('projectList',JSON.stringify(projectsList));
+}
